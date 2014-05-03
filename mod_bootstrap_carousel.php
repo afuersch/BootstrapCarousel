@@ -1,7 +1,9 @@
 <?php
 /**
- * @copyright	Copyright (C) 2013 Fabian Manzano. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @author      Fabian Manzano
+ * @author      Adrian Fürschuß
+ * @copyright	Copyright (C) 2013 - 2014. All rights reserved.
+ * @license	GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // no direct access
@@ -13,9 +15,6 @@ JHTML::script('modules/mod_BootstrapGallery/extra/jquery.js');
 JHTML::script('modules/mod_bootstrap_carousel/extra/bootstrap-carousel.js');
 JHTML::script('modules/mod_bootstrap_carousel/extra/bootstrap-transition.js');
 JHTML::stylesheet('modules/mod_bootstrap_carousel/extra/custom.css');
-
-
-//JHTML::stylesheet('modules/mod_Fab_Gallery/extras/style.css');
 
 $check_folder = modbootstrap_carouselHelper::validation($params); //I need to do this if I want to bring the value that i get from my
 $layout = $params->get('layout', 'default');//I dont understand 'layout for'
