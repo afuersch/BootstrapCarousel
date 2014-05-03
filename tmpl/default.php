@@ -43,11 +43,12 @@ if ($check_folder == null) {
                     echo "class=\"active\"";
                 }
                 echo "></li>";
-                $check++;
+                $check = false;
             }
             echo "</ol>";
         }
-        $check = false;
+        // reset check for next usage
+        $check = true;
         ?> 
         <div id="<?php echo $div_id . "_inner" ?>" class="carousel-inner">
             <?php
