@@ -21,6 +21,7 @@ if ($check_folder == null) {
     $alt_text = $params->get('Image_Name');
     $displayControls = $params->get('display_controls');
     $displayIndicators = $params->get('display_indicators');
+    $startSlideAuto = $params->get('start_slide_automatic');
     //$speed   = $params->get('speed');
     //define variables
     $divId = $carouselId . "_outer";
@@ -28,13 +29,14 @@ if ($check_folder == null) {
     $num_files = count($files);
     $check = true;  //to check the first foto and make it active
     ?>
-    <script type="text/javascript">
-        var $ = jQuery.noConflict();
-        $(document).ready(function() {
-            $('#<?php echo $divId; ?>').carousel({interval: 1000, cycle: true});
-        });
-    </script>
-
+    <?php if ($startSlideAuto) : ?>
+        <script type="text/javascript">
+            var $ = jQuery.noConflict();
+            $(document).ready(function() {
+                $('#<?php echo $divId; ?>').carousel({interval: 1000, cycle: true});
+            });
+        </script>
+    <?php endif; ?>
     <div id="<?= $divId ?>" class="carousel slide">
         <?php
         if ($displayIndicators) {

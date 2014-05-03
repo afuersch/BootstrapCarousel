@@ -9,4 +9,5 @@ Basic options for
 <ul>
 <li>Display controls (arrows)</li>
 <li>Display indicators</li>
+<li>Start sliding carousel automatically on page load</li>
 </ul>
