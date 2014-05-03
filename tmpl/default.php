@@ -10,15 +10,16 @@ defined('_JEXEC') or die;
 if ($check_folder == null) {
     ?>
     <pre>Oops: Or I couldnt find any images in the folder, or I couldnt find a folder with the name of <span
-                    class='label label-warning'><?php $params->get('folder') ?></span><br>
-            Please make sure the folder exist in the Media Manager (Content -> Media Manager)<br>
-            If the folder exists, please double check that you have spell it correctly in the Module Menu: Basic Options.</pre>
+                        class='label label-warning'><?php $params->get('folder') ?></span><br>
+                Please make sure the folder exist in the Media Manager (Content -> Media Manager)<br>
+                If the folder exists, please double check that you have spell it correctly in the Module Menu: Basic Options.</pre>
     <?php
 } else {
     $folder = $params->get('folder');
     $div_id = $params->get('id');
     $alt_text = $params->get('Image_Name');
     $displayControls = $params->get('display_controls');
+    $displayIndicators = $params->get('display_indicators');
     //$speed   = $params->get('speed');
 
     $files = glob("images/" . $folder . "/*.*");
@@ -33,6 +34,21 @@ if ($check_folder == null) {
     </script>
 
     <div id="<?php echo $div_id . "_outer" ?>" class="carousel slide">
+        <?php
+        if ($displayIndicators) {
+            echo '<ol class="carousel-indicators">';
+            for ($i = 0; $i < $num_files; $i++) {
+                echo "<li data-slide-to=\"$i\" data-target=\"#" . $div_id . "_outer\"";
+                if ($check) {
+                    echo "class=\"active\"";
+                }
+                echo "></li>";
+                $check++;
+            }
+            echo "</ol>";
+        }
+        $check = false;
+        ?> 
         <div id="<?php echo $div_id . "_inner" ?>" class="carousel-inner">
             <?php
             for ($i = 0; $i < $num_files; $i++) {

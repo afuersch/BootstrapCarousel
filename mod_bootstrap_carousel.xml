@@ -68,6 +68,18 @@
                         value="0">JNO
                     </option>
                 </field>
+                <field 
+                    name="display_indicators"
+                    type="radio"
+                    default="1"
+                    label="MOD_BOOTSTRAP_CAROUSEL_DISPLAY_INDICATORS"
+                    description="MOD_BOOTSTRAP_CAROUSEL_DISPLAY_INDICATORS_DESC"
+                >
+                    <option
+                        value="1">JYES</option>
+                    <option
+                        value="0">JNO</option>
+                </field>
                 <field
                     name="speed"
                     type="text"
