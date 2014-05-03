@@ -11,17 +11,19 @@ if ($check_folder == null) {
     ?>
     <pre>Oops: Or I couldnt find any images in the folder, or I couldnt find a folder with the name of <span
                         class='label label-warning'><?php $params->get('folder') ?></span><br>
-                Please make sure the folder exist in the Media Manager (Content -> Media Manager)<br>
-                If the folder exists, please double check that you have spell it correctly in the Module Menu: Basic Options.</pre>
+                        Please make sure the folder exist in the Media Manager (Content -> Media Manager)<br>
+                        If the folder exists, please double check that you have spell it correctly in the Module Menu: Basic Options.</pre>
     <?php
 } else {
+    // get parameters
     $folder = $params->get('folder');
-    $div_id = $params->get('id');
+    $carouselId = $params->get('id');
     $alt_text = $params->get('Image_Name');
     $displayControls = $params->get('display_controls');
     $displayIndicators = $params->get('display_indicators');
     //$speed   = $params->get('speed');
-
+    //define variables
+    $divId = $carouselId . "_outer";
     $files = glob("images/" . $folder . "/*.*");
     $num_files = count($files);
     $check = true;  //to check the first foto and make it active
@@ -29,16 +31,16 @@ if ($check_folder == null) {
     <script type="text/javascript">
         var $ = jQuery.noConflict();
         $(document).ready(function() {
-            $('#<?php echo $div_id; ?>_outer').carousel({interval: 1000, cycle: true});
+            $('#<?php echo $divId; ?>').carousel({interval: 1000, cycle: true});
         });
     </script>
 
-    <div id="<?php echo $div_id . "_outer" ?>" class="carousel slide">
+    <div id="<?= $divId ?>" class="carousel slide">
         <?php
         if ($displayIndicators) {
             echo '<ol class="carousel-indicators">';
             for ($i = 0; $i < $num_files; $i++) {
-                echo "<li data-slide-to=\"$i\" data-target=\"#" . $div_id . "_outer\"";
+                echo "<li data-slide-to=\"$i\" data-target=\"#" . $divId . "\"";
                 if ($check) {
                     echo "class=\"active\"";
                 }
@@ -50,7 +52,7 @@ if ($check_folder == null) {
         // reset check for next usage
         $check = true;
         ?> 
-        <div id="<?php echo $div_id . "_inner" ?>" class="carousel-inner">
+        <div id="<?php echo $carouselId . "_inner" ?>" class="carousel-inner">
             <?php
             for ($i = 0; $i < $num_files; $i++) {
                 $this_file = $files[$i];
@@ -64,7 +66,7 @@ if ($check_folder == null) {
                         $check = false;
                     }
                     ?>">
-                        <img id="<?php echo $div_id . "_img" . $i ?>" src="<?php echo $this_file ?>" alt="<?php echo $alt_text ?>">
+                        <img id="<?php echo $carouselId . "_img" . $i ?>" src="<?php echo $this_file ?>" alt="<?php echo $alt_text ?>">
                         <?php if ($alt_text == 1): ?>
                             <div class="carousel-caption"><h4><?php echo $base_name ?></h4></div>
                         <?php endif; ?>
@@ -76,8 +78,8 @@ if ($check_folder == null) {
 
         </div>
         <?php if ($displayControls) { ?>
-            <a href="#<?= $div_id ?>_outer" class="left carousel-control" data-slide="prev">&lsaquo;</a> 
-            <a href="#<?= $div_id ?>_outer" class="right carousel-control" data-slide="next">&rsaquo;</a> 
+            <a href="#<?= $divId ?>" class="left carousel-control" data-slide="prev">&lsaquo;</a> 
+            <a href="#<?= $divId ?>" class="right carousel-control" data-slide="next">&rsaquo;</a> 
         <?php } ?>
     </div>
     <?php

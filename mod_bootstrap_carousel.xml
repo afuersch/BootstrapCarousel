@@ -34,7 +34,7 @@
                 />
                 <field
                     name="id"
-                    type="div-id"
+                    type="text"
                     label="MOD_BOOTSTRAP_CAROUSEL_DIV_ID"
                     description="MOD_BOOTSTRAP_CAROUSEL_DIV_ID_DESC"
                     size="40"
