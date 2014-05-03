@@ -7,16 +7,16 @@
  */
 defined('_JEXEC') or die;
 
+$folder = $params->get('folder');
+
 if ($check_folder == null) {
     ?>
-    <pre>Oops: Or I couldnt find any images in the folder, or I couldnt find a folder with the name of <span
-                        class='label label-warning'><?php $params->get('folder') ?></span><br>
-                        Please make sure the folder exist in the Media Manager (Content -> Media Manager)<br>
-                        If the folder exists, please double check that you have spell it correctly in the Module Menu: Basic Options.</pre>
+    <pre class="alert alert-error">
+        <?php echo JText::sprintf('MOD_BOOTSTRAP_CAROUSEL_FOLDER_NOT_FOUND_ERROR_MESSAGE', $folder); ?>
+    </pre>
     <?php
 } else {
     // get parameters
-    $folder = $params->get('folder');
     $carouselId = $params->get('id');
     $alt_text = $params->get('Image_Name');
     $displayControls = $params->get('display_controls');
