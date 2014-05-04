@@ -22,7 +22,7 @@ if ($check_folder == null) {
     $displayControls = $params->get('display_controls');
     $displayIndicators = $params->get('display_indicators');
     $startSlideAuto = $params->get('start_slide_automatic');
-    //$speed   = $params->get('speed');
+    $interval = $params->get('interval');
     //define variables
     $divId = $carouselId . "_outer";
     $files = glob("images/" . $folder . "/*.*");
@@ -32,8 +32,8 @@ if ($check_folder == null) {
     <?php if ($startSlideAuto) : ?>
         <script type="text/javascript">
             var $ = jQuery.noConflict();
-            $(document).ready(function() {
-                $('#<?php echo $divId; ?>').carousel({interval: 1000, cycle: true});
+                    $(document).ready(function() {
+            $('#<?= $divId ?>').carousel(<?php if ($interval != 0) : ?>{interval: <?= $interval ?>}<?php endif; ?>);
             });
         </script>
     <?php endif; ?>
