@@ -11,4 +11,5 @@ Basic options for
 <li>Display indicators</li>
 <li>Start sliding carousel automatically on page load</li>
 <li>Slide interval</li>
+<li>Display image name as caption</li>
 </ul>

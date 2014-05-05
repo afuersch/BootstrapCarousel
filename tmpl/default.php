@@ -18,7 +18,7 @@ if ($check_folder == null) {
 } else {
     // get parameters
     $carouselId = $params->get('id');
-    $alt_text = $params->get('Image_Name');
+    $displayImageName = $params->get('display_image_name');
     $displayControls = $params->get('display_controls');
     $displayIndicators = $params->get('display_indicators');
     $startSlideAuto = $params->get('start_slide_automatic');
@@ -68,8 +68,8 @@ if ($check_folder == null) {
                         $check = false;
                     }
                     ?>">
-                        <img id="<?php echo $carouselId . "_img" . $i ?>" src="<?php echo $this_file ?>" alt="<?php echo $alt_text ?>">
-                        <?php if ($alt_text == 1): ?>
+                        <img id="<?php echo $carouselId . "_img" . $i ?>" src="<?php echo $this_file ?>" alt="<?php echo $base_name ?>">
+                        <?php if ($displayImageName == 1): ?>
                             <div class="carousel-caption"><h4><?php echo $base_name ?></h4></div>
                         <?php endif; ?>
                     </div>
