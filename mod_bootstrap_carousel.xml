@@ -102,8 +102,6 @@
                     class="inputbox validate-greeting"
                     default="0"
                 />
-
-
             </fieldset>
         </fields>
     </config>
