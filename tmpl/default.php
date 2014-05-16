@@ -44,7 +44,7 @@ if ($check_folder == null) {
             for ($i = 0; $i < $num_files; $i++) {
                 echo "<li data-slide-to=\"$i\" data-target=\"#" . $divId . "\"";
                 if ($check) {
-                    echo "class=\"active\"";
+                    echo " class=\"active\"";
                 }
                 echo "></li>";
                 $check = false;
