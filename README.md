@@ -13,3 +13,10 @@ Basic options for
 <li>Slide interval</li>
 <li>Display image name as caption</li>
 </ul>
+
+All texts of the carousel module are translated.
+Following languages are included:
+<ul>
+<li>English</li>
+<li>German</li>
+</ul>
